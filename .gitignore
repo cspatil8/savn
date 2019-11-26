@@ -1,0 +1,5 @@
+data/
+*.tar
+pretrained_models/
+trained_models/
+*__pycache__
