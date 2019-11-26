@@ -31,10 +31,10 @@ def main():
         args.learned_loss = False
         args.num_steps = 50
         target = nonadaptivea3c_val if args.eval else nonadaptivea3c_train
-    else:
-        args.learned_loss = True
-        args.num_steps = 6
-        target = savn_val if args.eval else savn_train
+    # else:
+    #     args.learned_loss = True
+    #     args.num_steps = 6
+    #     target = savn_val if args.eval else savn_train
 
     create_shared_model = model_class(args.model)
     init_agent = agent_class(args.agent_type)
