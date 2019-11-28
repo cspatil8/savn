@@ -121,6 +121,7 @@ def main():
         while train_total_ep < args.max_ep:
             print('total train ep: {}'.format(train_total_ep))
             train_result = train_res_queue.get()
+            print('Got the train result from the queue')
             train_scalars.add_scalars(train_result)
             train_total_ep += 1
             n_frames += train_result["ep_length"]
