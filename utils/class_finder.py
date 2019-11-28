@@ -13,6 +13,7 @@ def agent_class(class_name):
     if class_name not in agents.__all__:
        raise argparse.ArgumentTypeError("Invalid agent {}; choices: {}".format(
            class_name, agents.__all__))
+    print('getting attribute for {}'.format(class_name))
     return getattr(agents, class_name)
 def episode_class(class_name):
     if class_name not in episodes.__all__:
