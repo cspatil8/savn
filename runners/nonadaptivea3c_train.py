@@ -55,6 +55,7 @@ def nonadaptivea3c_train(
         torch.cuda.manual_seed(args.seed + rank)
     print('Done doing gpu bullshit')
     player = initialize_agent(create_shared_model, args, rank, gpu_id=gpu_id)
+    print('agent initialized')
     compute_grad = not isinstance(player, RandomNavigationAgent)
     print('Something something compute gradient')
     model_options = ModelOptions()
