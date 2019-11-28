@@ -70,10 +70,13 @@ class Environment:
 
     def reset(self, scene_name):
         """ Reset the scene. """
+        print('******************0')
         self.controller.reset(scene_name)
+        print('******************1')
         self.controller.step(
             dict(action="Initialize", gridSize=self.grid_size, fieldOfView=self.fov)
         )
+        print('******************2')
 
     def all_objects(self):
         if not self.use_offline_controller:

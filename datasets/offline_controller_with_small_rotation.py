@@ -601,7 +601,7 @@ class OfflineControllerWithSmallRotation(BaseController):
         return ThorAgentState(x, self.y, z, rotation, horizon)
 
     def reset(self, scene_name=None):
-
+        print('yoyoyoyoyoyoyoyoyoyoyoyoyo')
         if scene_name is None:
             scene_name = "FloorPlan28"
 
@@ -657,8 +657,10 @@ class OfflineControllerWithSmallRotation(BaseController):
         self.last_event = self._successful_event()
 
         if self.visualize:
+            print('qqqqqqqqqqqqqqqqqqqqqqqqqq')
             self.controller.reset(scene_name)
             self.controller.teleport_to_state(self.state)
+        print('ppppppppppppppp')
 
     def randomize_state(self):
         self.state = self.get_state_from_str(

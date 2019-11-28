@@ -27,16 +27,21 @@ class TestValEpisode(BasicEpisode):
                 images_file_name=args.images_file_name,
                 local_executable_path=args.local_executable_path,
             )
+            print('###################')
             self._env.start(scene)
+            print('$$$$$$$$$$$$$$$$$$$')
         else:
+            print("^^^^^^^^^^^^^^^^^^^^")
             self._env.reset(scene)
-
+            print('&&&&&&&&&&&&')
+        print('@@@@@@@@@@@@@@@@@@@@@@@')
         self.environment.controller.state = episode["state"]
 
         self.task_data = episode["task_data"]
         self.target_object = episode["goal_object_type"]
 
         if args.verbose:
+            print("!!!!!!!!!!!!!!!!!!!!!!")
             print("Scene", scene, "Navigating towards:", self.target_object)
 
         self.glove_embedding = gpuify(episode["glove_embedding"], self.gpu_id)

@@ -87,6 +87,7 @@ class ThorAgent:
     def print_info(self):
         """ Print the actions. """
         for action in self.actions:
+            print('Blah blah')
             print(action)
 
     @model.setter
