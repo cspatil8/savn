@@ -33,7 +33,7 @@ def nonadaptivea3c_train(
     res_queue,
     end_flag,
 ):
-
+    print('Now Im in nonadaptivea3c_train')
     glove = Glove(args.glove_file)
     scenes, possible_targets, targets = get_data(args.scene_types, args.train_scenes)
 
@@ -59,7 +59,7 @@ def nonadaptivea3c_train(
     model_options = ModelOptions()
 
     j = 0
-
+    print('Right before while loop')
     while not end_flag.value:
 
         # Get a new episode.
@@ -103,5 +103,5 @@ def nonadaptivea3c_train(
         reset_player(player)
 
         j = (j + 1) % len(args.scene_types)
-
+    print('End of while loop')
     player.exit()
