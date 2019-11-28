@@ -33,31 +33,31 @@ def nonadaptivea3c_train(
     res_queue,
     end_flag,
 ):
-    print('Now Im in nonadaptivea3c_train')
+    # print('Now Im in nonadaptivea3c_train')
     glove = Glove(args.glove_file)
     scenes, possible_targets, targets = get_data(args.scene_types, args.train_scenes)
-    print('We have glove embeddings and data wow')
+    # print('We have glove embeddings and data wow')
     random.seed(args.seed + rank)
     idx = [j for j in range(len(args.scene_types))]
     random.shuffle(idx)
-    print('scene types have been shuffled')
+    # print('scene types have been shuffled')
     setproctitle.setproctitle("Training Agent: {}".format(rank))
-    print('some set proctitle bullshit')
+    # print('some set proctitle bullshit')
     gpu_id = args.gpu_ids[rank % len(args.gpu_ids)]
-    print('something gpu id')
+    # print('something gpu id')
     import torch
-    print('Torch imported')
+    # print('Torch imported')
     torch.cuda.set_device(gpu_id)
-    print('Looks like we cannot set device, cuda is a bunch of fuckers for gpu id : {}'.format(gpu_id))
+    # print('Looks like we cannot set device, cuda is a bunch of fuckers for gpu id : {}'.format(gpu_id))
     torch.manual_seed(args.seed + rank)
     if gpu_id >= 0:
-        print('gpu id > 0, who knows what happens next')
+        # print('gpu id > 0, who knows what happens next')
         torch.cuda.manual_seed(args.seed + rank)
-    print('Done doing gpu bullshit')
+    # print('Done doing gpu bullshit')
     player = initialize_agent(create_shared_model, args, rank, gpu_id=gpu_id)
-    print('agent initialized')
+    # print('agent initialized')
     compute_grad = not isinstance(player, RandomNavigationAgent)
-    print('Something something compute gradient')
+    # print('Something something compute gradient')
     model_options = ModelOptions()
 
     j = 0

@@ -119,7 +119,8 @@ def main():
 
     try:
         while train_total_ep < args.max_ep:
-            print('total train ep: {}'.format(train_total_ep))
+            print('total train ep: {} of {}'.format(train_total_ep, args.max_ep))
+            print('Cuda available: {}'.format(torch.cuda.is_available()))
             train_result = train_res_queue.get()
             print('Got the train result from the queue')
             train_scalars.add_scalars(train_result)
