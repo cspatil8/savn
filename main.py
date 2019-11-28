@@ -119,7 +119,7 @@ def main():
 
     try:
         while train_total_ep < args.max_ep:
-
+            print('total train ep: {}'.format(train_total_ep))
             train_result = train_res_queue.get()
             train_scalars.add_scalars(train_result)
             train_total_ep += 1
