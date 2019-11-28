@@ -37,6 +37,7 @@ def a3c_loss(args, player, gpu_id, model_options):
         R = output.value.data
 
     if gpu_id >= 0:
+        print('!#@$#^&^*&*^%$#@!#@$#%$^%&^')
         with torch.cuda.device(gpu_id):
             R = R.cuda()
 
