@@ -73,7 +73,7 @@ class ScaleBothSides(object):
 
 
 class ScalarMeanTracker(object):
-    def __init__(self) -> None:
+    def __init__(self):
         self._sums = {}
         self._counts = {}
 
