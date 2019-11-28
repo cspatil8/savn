@@ -48,7 +48,7 @@ def nonadaptivea3c_train(
     import torch
     print('Torch imported')
     torch.cuda.set_device(gpu_id)
-
+    print('Looks like we cannot set device, cuda is a bunch of fuckers for gpu id : {}'.format(gpu_id))
     torch.manual_seed(args.seed + rank)
     if gpu_id >= 0:
         print('gpu id > 0, who knows what happens next')
