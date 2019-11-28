@@ -39,7 +39,7 @@ def main():
     create_shared_model = model_class(args.model)
     init_agent = agent_class(args.agent_type)
     optimizer_type = optimizer_class(args.optimizer)
-    print('shared model created')
+    # print('shared model created')
     if args.eval:
         main_eval(args, create_shared_model, init_agent)
         return
@@ -52,7 +52,7 @@ def main():
     torch.manual_seed(args.seed)
     random.seed(args.seed)
 
-    print('seeding done')
+    # print('seeding done')
 
     if args.log_dir is not None:
         tb_log_dir = args.log_dir + "/" + args.title + "-" + local_start_time_str
@@ -63,7 +63,7 @@ def main():
     if args.gpu_ids == -1:
         args.gpu_ids = [-1]
     else:
-        print('something to do with cuda')
+        # print('something to do with cuda')
         torch.cuda.manual_seed(args.seed)
         mp.set_start_method("spawn")
 
@@ -73,14 +73,14 @@ def main():
     n_frames = 0
 
     if shared_model is not None:
-        print('shared model is being created')
+        # print('shared model is being created')
         shared_model.share_memory()
         optimizer = optimizer_type(
             filter(lambda p: p.requires_grad, shared_model.parameters()), args
         )
         optimizer.share_memory()
         print(shared_model)
-        print('!!!!!!!!!!!!')
+        # print('!!!!!!!!!!!!')
     else:
         assert (
             args.agent_type == "RandomNavigationAgent"
